@@ -1,0 +1,35 @@
+{%  extends "index.html"  %}
+
+{% block content  %}
+    <div class="panel panel-default panel-info">
+        <div class="panel-heading">耕耘新用户注册</div>
+                        <div class="panel-body">
+                             <form action="/gengyun_login/" method="post">
+                                      {% csrf_token %}
+
+                                        {{ form.as_p }}
+                                        <input type="submit" value="注册" />
+                                    </form>
+                        </div>
+    </div>
+
+<style>
+#id_password{
+   margin-left:55px;
+}
+
+#id_username{
+   margin-left:40px;
+}
+
+#id_first_name{
+   margin-left:55px;
+}
+
+
+</style>
+
+
+
+
+{%  endblock %}

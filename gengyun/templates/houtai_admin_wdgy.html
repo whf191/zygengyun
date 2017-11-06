@@ -1,0 +1,73 @@
+{%  extends "houtai_admin.html"  %}
+{% block content  %}
+
+{%  endblock %}
+
+
+{% block houtai_content  %}
+
+
+           <div class="col-md-9">
+
+                          <div class="panel panel-default">
+                              <div class="panel-heading"><b>我的耕耘</b>  <span style="float:right"> <a href="/houtai_fayan/"> 发表</a></span></div>
+
+                              <ul class="list-group">
+                                  {%  if  huoqu_mouye_jilu%}
+                                                    {% for t in huoqu_mouye_jilu.object_list %}
+                                  <li class="list-group-item"> <a href="/gengyun_zhongzi/?pk={{t.id}}"  >  {{  t.name }} </a>   <span style="float:right"> 开垦日:{{ t.create_date }} </span> </li>
+
+                                                    {%  endfor %}
+
+                                  {% else%}
+
+                                  {%  endif %}
+
+                              </ul>
+
+    {% if huoqu_mouye_jilu %}
+                        <ul class="list-group">
+
+                            <li class="list-group-item">
+
+		<div style="background:#FFF;color:#000;margin-top:10px;padding-top:7px;padding-bottom:7px;padding-right:7px;padding-left:10px;">
+
+		<b>
+		                                     {% if huoqu_mouye_jilu.has_previous %}
+		  <a href="?page={{ huoqu_mouye_jilu.previous_page_number }}">上一页</a>
+		  {% endif %}
+		  {# huoqu_mouye_jilu.paginator.number_pages 返回总页数 #}
+		  当前是第{{ huoqu_mouye_jilu.number }}页, 共有 {{ huoqu_mouye_jilu.paginator.num_pages }}页.
+		{% if huoqu_mouye_jilu.has_next %}
+		  <a href="?page={{ huoqu_mouye_jilu.next_page_number }}">下一页</a>
+		{% endif %}
+		</b>
+
+		</div>
+		{% endif %}
+
+                            </li>
+                        </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            </div>
+
+
+  </div>
+
+
+
+{%  endblock %}

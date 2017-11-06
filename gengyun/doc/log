@@ -1,0 +1,8 @@
+#log...
+
+#富文本编辑器doc
+https://docs.ckeditor.com/#!/guide/dev_installation
+
+#overflow
+css 默认li的overflow是visible	默认值。内容不会被修剪，会呈现在元素框之外。改为auto
+参考地址：http://www.runoob.com/cssref/pr-pos-overflow.html

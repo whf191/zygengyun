@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+   <head>
+	   <meta charset="UTF-8">
+      <title>耕耘</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- 引入 Bootstrap -->
+      <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.1.0/jquery-confirm.min.css">
+   </head>
+   <body>
+   <!--  导航部门 container -fluid  -->
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#example-navbar-collapse">
+			<span class="sr-only">切换导航</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="/gengyun_index/">耕耘</a>
+	</div>
+	<div class="collapse navbar-collapse" id="example-navbar-collapse">
+		<ul class="nav navbar-nav">
+           {% block daohang %}
+
+           {%  if daohangtiao  %}
+
+        {%  for k,v in daohangtiao.items  %}
+
+	<li class="dropdown">
+
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					{{k}} <b class="caret"></b>
+				</a>
+
+				<ul class="dropdown-menu">
+                    {%  for i in v %}
+					<li><a href={{ i.0 }} >  {{ i.1 }} </a></li>
+
+                    {% endfor %}
+
+                </ul>
+			</li>
+
+			{% endfor %}
+	{% endif %}
+
+
+
+
+           {% endblock %}
+            <!--
+            <li class="dropdown">
+
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					Java <b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="/java8686/">java8686</a></li>
+					<li><a href="#">java8726</a></li>
+					<li><a href="#">crm</a></li>
+				</ul>
+
+			</li>
+			 -->
+
+		</ul>
+        <div style="float:right;padding-top:16px;">
+            {% if request.user.first_name %}
+            <span style="color:red;">
+                 welcome,{{ request.user.first_name }}  | <span> <a href="/houtai_admin/"> 管理中心</a> </span>    <span ><a href="/gengyun_logout/">|   注销</a> </span>
+
+                  </span>
+
+
+            {% else%}
+                  {% if request.user.username %}
+                   <span style="color:red;">
+                 welcome,{{ request.user.username }}  | <span> <a href="/houtai_admin/"> 管理中心</a> </span>    <span ><a href="/gengyun_logout/">|   注销</a> </span>
+
+                  </span>
+                 {% else%}
+
+            <b> <a href="/gengyun_login/">注册</a> </b> | <b><a href="/gengyun_denglu/">登录</a> </b>   {% endif %}   {% endif %}
+
+        </div>
+	</div>
+	</div>
+</nav>
+
+
+            </div>
+
+
+            </div>
+
+           <!--  context部分 -->
+         <div class="row">
+            <div class="col-md-12">
+            <div  id="box1" >
+                   {% block houtai_caidan  %}
+
+
+                {% endblock %}
+
+                {% block houtai_content  %}
+
+
+                {% endblock %}
+
+
+                {% block content %}
+
+
+
+                    <div class="panel panel-default panel-info">
+                        <div class="panel-heading">耕耘动态</div>
+                        <div class="panel-body">
+                            <h2>关于耕耘:</h2>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;耕耘的哲学是协作精神，一切由你主做...快来加入吧.</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;开发者:万万</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 意见 &nbsp; --&gt; &nbsp;email:1296935454@qq.com</p>
+                        </div>
+                        <ul class="list-group">
+                            {% for t in huoqu_mouye_jilu.object_list %}
+                            <li  style="overflow:auto;" class="list-group-item"><a href="/gengyun_zhongzi/?pk={{t.id}}"  > {{ t.name }} </a>&nbsp;&nbsp;&nbsp;&nbsp;<span  style="float:right;">{{t.user_id.first_name}}     开垦日:{{ t.create_date  }}</span></li>
+                            {% endfor %}
+                        </ul>
+
+{% if huoqu_mouye_jilu %}
+                        <ul class="list-group">
+
+                            <li class="list-group-item">
+
+		<div style="background:#FFF;color:#000;margin-top:10px;padding-top:7px;padding-bottom:7px;padding-right:7px;padding-left:10px;">
+
+		<b>
+		                                     {% if huoqu_mouye_jilu.has_previous %}
+		  <a href="?page={{ huoqu_mouye_jilu.previous_page_number }}">上一页</a>
+		  {% endif %}
+		  {# huoqu_mouye_jilu.paginator.number_pages 返回总页数 #}
+		  当前是第{{ huoqu_mouye_jilu.number }}页, 共有 {{ huoqu_mouye_jilu.paginator.num_pages }}页.
+		{% if huoqu_mouye_jilu.has_next %}
+		  <a href="?page={{ huoqu_mouye_jilu.next_page_number }}">下一页</a>
+		{% endif %}
+		</b>
+
+		</div>
+		{% endif %}
+
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+                {% endblock  %}
+
+            </div>
+
+
+         </div>
+
+
+
+
+         </div>
+
+</div>
+
+   <script src="https://code.jquery.com/jquery.js"></script>
+   <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.1.0/jquery-confirm.min.js"></script>
+
+   </body>
+</html>

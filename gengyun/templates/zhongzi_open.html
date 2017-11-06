@@ -1,0 +1,24 @@
+{%  extends "index.html"  %}
+
+{% block content  %}
+    <div class="panel panel-default panel-info">
+        <div class="panel-heading">{{ rs_gy.name}}<span style="float:right;">   {{rs_gy.gengyuns_id.user_id}}  <span > |  <a href="/gengyun_zhongzi/?pk={{ rs_gy.gengyuns_id.pk }}"> 返回关联主题</a></span> </span>
+
+
+
+                                           </div>
+                        <div class="panel-body">
+                             {%  if rs_gy.text %}
+                            <p>呵护日:{{rs_gy.create_date}}</p>
+                            {{rs_gy.text  |safe  }}
+                            {% else%}
+                            <h4>公告:</h4><p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 细雨飘飘,惟妙惟肖.一起来，耕耘吧!
+                            </p>
+                            {% endif %}
+                        </div>
+    </div>
+
+
+
+
+{%  endblock %}

@@ -1,0 +1,71 @@
+{%  extends "index.html"  %}
+
+{% block content  %}
+    <div class="panel panel-default panel-info">
+                        <div class="panel-heading">{{ rs_gy.name}}</div>
+                        <div class="panel-body">
+                             {%  if rs_gy.text %}
+                            <p>栽培日:{{rs_gy.create_date}}</p>
+                            {{rs_gy.text  |safe }}
+                            {% else%}
+                            <p>耕耘主人，好像忘记了什么?
+                            </p>
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+             <div class="panel panel-default">
+                 <div class="panel-heading"><b>主题</b>  <span style="float:right;"><a href="/zhongzi_fayan/?pk={{ rs_gy.id }}" >发言</a> </span>  </div>
+                        	<ul class="list-group">
+
+                                {% if huoqu_mouye_jilu %}
+
+                                {% for i in huoqu_mouye_jilu  %}
+                                <li   style="overflow:auto;"  class="list-group-item"><a href="/zhongzi_open/?pk={{i.pk}}">{{ i.name }}</a> &nbsp;&nbsp;<div style="float:right;">用户:
+                                    {% if i.user_id.first_name %}
+                                    {{  i.user_id.first_name }}
+                                    {% else %}
+                                      {{i.user_id}}
+
+                                    {% endif %}
+
+                                    &nbsp;&nbsp;{{i.create_date}}</div></li>
+                                {%  endfor %}
+                                {% else %}
+
+                                <p>还没有人来呵护,点下<a href="/zhongzi_fayan/?pk={{ rs_gy.id }}" >发言</a></p>
+                                {% endif %}
+            </ul>
+
+                 {% if huoqu_mouye_jilu %}
+                        <ul class="list-group">
+
+                            <li class="list-group-item">
+
+		<div style="background:#FFF;color:#000;margin-top:10px;padding-top:7px;padding-bottom:7px;padding-right:7px;padding-left:10px;">
+
+		<b>
+		                                     {% if huoqu_mouye_jilu.has_previous %}
+		  <a href="?page={{ huoqu_mouye_jilu.previous_page_number }}&pk={{rs_gy.pk}}">上一页</a>
+		  {% endif %}
+		  {# huoqu_mouye_jilu.paginator.number_pages 返回总页数 #}
+		  当前是第{{ huoqu_mouye_jilu.number }}页, 共有 {{ huoqu_mouye_jilu.paginator.num_pages }}页.
+		{% if huoqu_mouye_jilu.has_next %}
+		  <a href="?page={{ huoqu_mouye_jilu.next_page_number }}&pk={{rs_gy.pk}}">下一页</a>
+		{% endif %}
+		</b>
+
+		</div>
+		{% endif %}
+
+                            </li>
+                        </ul>
+
+            </div>
+
+
+
+
+
+{%  endblock %}

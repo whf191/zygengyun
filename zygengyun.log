@@ -1,0 +1,782 @@
+WARNING 2017-09-05 10:03:35,920 base 59692 61028 Not Found: /
+WARNING 2017-09-05 10:03:35,960 base 59692 64320 Not Found: /favicon.ico
+WARNING 2017-09-05 10:03:43,155 base 59692 39972 Not Found: /admin
+WARNING 2017-09-05 10:08:30,203 base 61204 54328 Not Found: /
+WARNING 2017-09-05 10:34:12,982 base 76696 75700 Not Found: /gengyun_index
+ERROR 2017-09-05 11:45:45,273 base 102116 121348 Internal Server Error: /gengyun_index/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\views.py", line 35, in gengyun_index
+    huoqu_mouye_jilu = fenye_duixiang.page(page)
+  File "C:\Python27\lib\site-packages\django\core\paginator.py", line 50, in page
+    number = self.validate_number(number)
+  File "C:\Python27\lib\site-packages\django\core\paginator.py", line 39, in validate_number
+    if number > self.num_pages:
+  File "C:\Python27\lib\site-packages\django\core\paginator.py", line 86, in _get_num_pages
+    if self.count == 0 and not self.allow_empty_first_page:
+  File "C:\Python27\lib\site-packages\django\core\paginator.py", line 77, in _get_count
+    self._count = len(self.object_list)
+TypeError: object of type 'reversed' has no len()
+ERROR 2017-09-05 13:25:50,243 base 156012 150260 Internal Server Error: /gengyun_index/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\views.py", line 30, in gengyun_index
+    fenye_duixiang = shouye_gengyun()
+  File "D:\svn2\new_projcet\zygengyun\gengyun\views.py", line 21, in shouye_gengyun
+    p = Paginator(list(reversed(dhl_list)),limit) #榛樿2琛屼负涓€鍒楀苟鍙嶈浆鍒楄〃
+  File "C:\Python27\lib\site-packages\django\db\models\query.py", line 240, in __len__
+    self._fetch_all()
+  File "C:\Python27\lib\site-packages\django\db\models\query.py", line 1074, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "C:\Python27\lib\site-packages\django\db\models\query.py", line 52, in __iter__
+    results = compiler.execute_sql()
+  File "C:\Python27\lib\site-packages\django\db\models\sql\compiler.py", line 852, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Python27\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Python27\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python27\lib\site-packages\django\db\utils.py", line 95, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Python27\lib\site-packages\django\db\backends\utils.py", line 64, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Python27\lib\site-packages\django\db\backends\sqlite3\base.py", line 323, in execute
+    return Database.Cursor.execute(self, query, params)
+OperationalError: no such column: gengyun_gengyuns.text
+WARNING 2017-09-05 14:01:43,388 base 160144 173324 Not Found: /
+WARNING 2017-09-05 14:05:59,071 base 160144 175728 Not Found: /gengyun_fayan/
+ERROR 2017-09-05 14:19:48,214 base 169904 179204 Internal Server Error: /gengyun_zhongzi/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\views.py", line 76, in gengyun_zhongzi
+    return render_to_response("zhongzi.html", {"daohangtiao": daohangtiao, "rs_gy": rs_gy,"rs_zz":rs_zz})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 514, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Could not parse the remainder: ' i.gengyuns_id.user_id' from '"\u4f5c\u8005:" i.gengyuns_id.user_id'
+ERROR 2017-09-05 14:29:09,184 base 130016 186532 Internal Server Error: /gengyun_zhongzi/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\views.py", line 81, in gengyun_zhongzi
+    return render_to_response("zhongzi.html", {"daohangtiao": daohangtiao, "rs_gy": rs_gy,"huoqu_mouye_jilu":huoqu_mouye_jilu})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 173, in render
+    return compiled_parent._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 69, in render
+    result = block.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\defaulttags.py", line 326, in render
+    return nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\defaulttags.py", line 167, in render
+    values = list(values)
+TypeError: 'Paginator' object is not iterable
+WARNING 2017-09-05 14:35:18,911 base 183400 170168 Not Found: /zhongzi_open/
+WARNING 2017-09-05 14:35:22,773 base 183400 195072 Not Found: /zhongzi_open/
+WARNING 2017-09-05 14:38:03,687 base 183400 196700 Not Found: /zhongzi_open/
+WARNING 2017-09-05 14:38:15,694 base 183400 188540 Not Found: /zhongzi_open/
+WARNING 2017-09-05 14:44:19,131 base 183532 183036 Not Found: /zhongzi_open/
+WARNING 2017-09-05 14:46:07,176 base 183532 183908 Not Found: /gengyun_fayan/
+WARNING 2017-09-05 14:47:53,711 base 166356 199356 Not Found: /zhongzi_open/
+WARNING 2017-09-05 14:48:00,980 base 166356 195680 Not Found: /gengyun_zhongzi
+WARNING 2017-09-05 14:48:15,970 base 188732 196860 Not Found: /zhongzi_open/
+WARNING 2017-09-05 14:56:42,453 base 188732 13432 Not Found: /zhongzi_open/
+WARNING 2017-09-05 15:20:02,207 base 89308 220108 Not Found: /gengyun_login
+WARNING 2017-09-05 15:41:53,841 base 213468 227504 Not Found: /favicon.ico
+WARNING 2017-09-05 15:52:54,400 base 213468 231156 Not Found: /your-name/
+WARNING 2017-09-05 15:57:30,176 csrf 229076 239700 Forbidden (CSRF token missing or incorrect.): /gengyun_login/
+WARNING 2017-09-05 15:57:40,822 csrf 229076 239592 Forbidden (CSRF token missing or incorrect.): /gengyun_login/
+WARNING 2017-09-05 16:00:19,210 csrf 235880 242716 Forbidden (CSRF token missing or incorrect.): /gengyun_login/
+WARNING 2017-09-05 16:33:33,105 base 244892 233828 Not Found: /favicon.ico
+WARNING 2017-09-05 16:51:00,845 csrf 269944 271044 Forbidden (CSRF token missing or incorrect.): /gengyun_login/
+WARNING 2017-09-05 16:51:17,584 base 269944 270208 Not Found: /
+ERROR 2017-09-05 16:52:35,579 base 236560 264100 Internal Server Error: /gengyun_denglu/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view gengyun.houtai_views.gengyun_denglu didn't return an HttpResponse object. It returned None instead.
+WARNING 2017-09-05 16:55:29,121 csrf 270708 266292 Forbidden (CSRF token missing or incorrect.): /admin/login/
+WARNING 2017-09-05 16:55:32,681 csrf 270708 271148 Forbidden (CSRF token missing or incorrect.): /admin/login/
+WARNING 2017-09-05 17:00:55,573 base 270708 265588 Not Found: /favicon.ico
+WARNING 2017-09-05 17:00:56,283 base 270708 272136 Not Found: /favicon.ico
+ERROR 2017-09-05 17:06:56,575 base 278544 283944 Internal Server Error: /gengyun_login/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 19, in gengyun_login
+    logout()
+TypeError: logout() takes exactly 1 argument (0 given)
+ERROR 2017-09-05 17:13:11,926 base 283216 249136 Internal Server Error: /gengyun_login/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 31, in gengyun_login
+    print form.fields.keys['username']
+TypeError: 'instancemethod' object has no attribute '__getitem__'
+ERROR 2017-09-05 17:15:45,621 base 282976 256480 Internal Server Error: /gengyun_login/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 31, in gengyun_login
+    print form.fields['username'].get_bound_field()
+TypeError: get_bound_field() takes exactly 3 arguments (1 given)
+WARNING 2017-09-05 17:37:29,135 base 208488 298104 Not Found: /gengyun_logout/
+ERROR 2017-09-06 10:22:14,598 base 298500 265920 Internal Server Error: /houtai_admin/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 67, in houtai_admin
+    return render_to_response("houtai_admin.html",{"request":request})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 32, in get_template
+    return engine.get_template(template_name, dirs)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 40, in get_template
+    return Template(self.engine.get_template(template_name, dirs), self)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 514, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Could not parse the remainder: '[0]' from 'i[0]'
+WARNING 2017-09-06 10:26:34,480 base 298500 263864 Not Found: /
+ERROR 2017-09-06 10:45:38,119 base 302684 283548 Internal Server Error: /houtai_admin_gyzz/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 83, in houtai_admin_gyzz
+    return render_to_response("houtai_admin_grzz.html", {"request": request})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 43, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+TemplateDoesNotExist: houtai_admin_grzz.html
+ERROR 2017-09-06 10:46:20,092 base 302684 313964 Internal Server Error: /houtai_admin_gyzz/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 83, in houtai_admin_gyzz
+    return render_to_response("houtai_admin_grzz.html", {"request": request})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 96, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 43, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+TemplateDoesNotExist: houtai_admin_grzz.html
+ERROR 2017-09-06 11:04:58,755 base 95956 324196 Internal Server Error: /houtai_admin_grxx/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 72, in houtai_admin_grxx
+    return render_to_response("houtai_admin_grxx.html", {"request": request})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 151, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 148, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 128, in find_template
+    template_name, skip=history,
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 514, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 7: 'caidan', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2017-09-06 11:05:27,483 base 95956 318256 Internal Server Error: /houtai_admin_wdgy/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 77, in houtai_admin_wdgy
+    return render_to_response("houtai_admin_wdgy.html", {"request": request})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 151, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 148, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 128, in find_template
+    template_name, skip=history,
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 514, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 7: 'caidan', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2017-09-06 11:07:15,444 base 95956 302128 Internal Server Error: /houtai_admin_wdgy/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 77, in houtai_admin_wdgy
+    return render_to_response("houtai_admin_wdgy.html", {"request": request})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 151, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 148, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 128, in find_template
+    template_name, skip=history,
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 514, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 4: 'caidan', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2017-09-06 11:08:12,609 base 95956 321544 Internal Server Error: /houtai_admin_wdgy/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 77, in houtai_admin_wdgy
+    return render_to_response("houtai_admin_wdgy.html", {"request": request})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 151, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 148, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 128, in find_template
+    template_name, skip=history,
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 514, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 4: 'caidan', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2017-09-06 11:08:14,844 base 95956 316020 Internal Server Error: /houtai_admin_wdgy/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 77, in houtai_admin_wdgy
+    return render_to_response("houtai_admin_wdgy.html", {"request": request})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 151, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 148, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 128, in find_template
+    template_name, skip=history,
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 514, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 4: 'caidan', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2017-09-06 11:08:21,700 base 95956 314872 Internal Server Error: /houtai_admin_wdgy/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 77, in houtai_admin_wdgy
+    return render_to_response("houtai_admin_wdgy.html", {"request": request})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 173, in render
+    return compiled_parent._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 151, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 148, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 128, in find_template
+    template_name, skip=history,
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 514, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 100: 'caidan', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2017-09-06 11:08:33,983 base 95956 298736 Internal Server Error: /houtai_admin_wdgy/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 77, in houtai_admin_wdgy
+    return render_to_response("houtai_admin_wdgy.html", {"request": request})
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 39, in render_to_response
+    content = loader.render_to_string(template_name, context, using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 97, in render_to_string
+    return template.render(context, request)
+  File "C:\Python27\lib\site-packages\django\template\backends\django.py", line 95, in render
+    return self.template.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 206, in render
+    return self._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 173, in render
+    return compiled_parent._render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 988, in render
+    bit = node.render_annotated(context)
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 955, in render_annotated
+    return self.render(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 151, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 148, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Python27\lib\site-packages\django\template\loader_tags.py", line 128, in find_template
+    template_name, skip=history,
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 514, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Invalid block tag on line 100: 'caidan', expected 'endblock'. Did you forget to register or load this tag?
+WARNING 2017-09-06 11:25:48,710 base 95956 326776 Not Found: /favicon.ico
+WARNING 2017-09-06 11:31:29,951 base 95956 325996 Not Found: /favicon.ico
+ERROR 2017-09-06 14:22:07,966 base 375432 40244 Internal Server Error: /houtai_admin_wdgy/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 99, in houtai_admin_wdgy
+    huoqu_mouye_jilu = fenye_duixiang.page(page)
+AttributeError: 'bool' object has no attribute 'page'
+WARNING 2017-09-06 15:58:59,243 base 306948 73144 Not Found: /houtai_fayan
+ERROR 2017-09-06 15:58:59,252 base 306948 94776 Internal Server Error: /houtai_fayan/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 124, in houtai_fayan
+    form  = biaodan()
+  File "C:\Python27\lib\site-packages\django\forms\models.py", line 275, in __init__
+    raise ValueError('ModelForm has no model class specified.')
+ValueError: ModelForm has no model class specified.
+ERROR 2017-09-06 16:02:32,721 base 306948 49824 Internal Server Error: /houtai_fayan/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 124, in houtai_fayan
+    form  = biaodan()
+  File "C:\Python27\lib\site-packages\django\forms\models.py", line 275, in __init__
+    raise ValueError('ModelForm has no model class specified.')
+ValueError: ModelForm has no model class specified.
+WARNING 2017-09-06 16:17:04,085 base 99124 105176 Not Found: /gengyun_fayan/
+WARNING 2017-09-06 16:20:59,273 base 99124 98580 Not Found: /favicon.ico
+WARNING 2017-09-06 16:27:02,197 csrf 111836 83920 Forbidden (CSRF token missing or incorrect.): /houtai_fayan/
+WARNING 2017-09-06 16:27:31,996 csrf 111836 100028 Forbidden (CSRF token missing or incorrect.): /houtai_fayan/
+WARNING 2017-09-06 16:27:54,707 csrf 111836 110832 Forbidden (CSRF token missing or incorrect.): /houtai_fayan/
+WARNING 2017-09-06 18:02:40,627 base 92380 159440 Not Found: /gengyun_fayan/
+WARNING 2017-09-07 09:45:47,578 csrf 244532 138068 Forbidden (CSRF token missing or incorrect.): /houtai_fayan/
+WARNING 2017-09-07 09:55:58,631 csrf 65264 149812 Forbidden (CSRF token missing or incorrect.): /houtai_fayan/
+WARNING 2017-09-07 09:57:36,117 csrf 150224 133440 Forbidden (CSRF token missing or incorrect.): /houtai_fayan/
+WARNING 2017-09-07 10:16:35,188 base 148000 45396 Not Found: /favicon.ico
+WARNING 2017-09-07 10:19:43,424 base 120424 153396 Not Found: /gengyun_fayan/
+WARNING 2017-09-07 10:26:02,052 base 150576 156328 Not Found: /gengyun_fayan/
+ERROR 2017-09-07 10:40:07,282 base 173276 168104 Internal Server Error: /zhongzi_fayan/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view gengyun.houtai_views.zhongzi_fayan didn't return an HttpResponse object. It returned None instead.
+ERROR 2017-09-07 10:49:27,874 base 158576 136896 Internal Server Error: /zhongzi_fayan/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 152, in zhongzi_fayan
+    return render_to_response("houtai_admin_zhongzi_fayan.html",context_instance=RequestContext(request))
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 114, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 231, in render_to_string
+    t = self.get_template(template_name, dirs)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 514, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Could not parse the remainder: '{{ request.user.pk' from '{{ request.user.pk'
+ERROR 2017-09-07 10:49:59,135 base 170988 184520 Internal Server Error: /zhongzi_fayan/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 152, in zhongzi_fayan
+    return render_to_response("houtai_admin_zhongzi_fayan.html",{"request":request},context_instance=RequestContext(request))
+  File "C:\Python27\lib\site-packages\django\shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "C:\Python27\lib\site-packages\django\template\loader.py", line 114, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 231, in render_to_string
+    t = self.get_template(template_name, dirs)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "C:\Python27\lib\site-packages\django\template\engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "C:\Python27\lib\site-packages\django\template\loaders\base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 230, in compile_nodelist
+    return parser.parse()
+  File "C:\Python27\lib\site-packages\django\template\base.py", line 514, in parse
+    raise self.error(token, e)
+TemplateSyntaxError: Could not parse the remainder: '{{ request.user.pk' from '{{ request.user.pk'
+ERROR 2017-09-07 12:36:52,502 base 228096 231040 Internal Server Error: /houtai_admin_wdgy/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\houtai_views.py", line 100, in houtai_admin_wdgy
+    huoqu_mouye_jilu = fenye_duixiang.page(page)
+AttributeError: 'bool' object has no attribute 'page'
+ERROR 2017-09-07 13:46:29,664 base 258680 267068 Internal Server Error: /houtai_admin_grxx/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view gengyun.houtai_views.houtai_admin_grxx didn't return an HttpResponse object. It returned None instead.
+ERROR 2017-09-07 13:47:31,016 base 259280 264124 Internal Server Error: /houtai_admin_grxx/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 158, in get_response
+    % (callback.__module__, view_name))
+ValueError: The view gengyun.houtai_views.houtai_admin_grxx didn't return an HttpResponse object. It returned None instead.
+ERROR 2017-09-07 13:52:28,141 base 265224 246200 Internal Server Error: /houtai_admin_grxx/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 235, in get_response
+    response = middleware_method(request, response)
+  File "C:\Python27\lib\site-packages\django\middleware\clickjacking.py", line 31, in process_response
+    if response.get('X-Frame-Options') is not None:
+AttributeError: 'unicode' object has no attribute 'get'
+ERROR 2017-09-07 13:52:39,275 base 265224 257940 Internal Server Error: /houtai_admin_grxx/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 235, in get_response
+    response = middleware_method(request, response)
+  File "C:\Python27\lib\site-packages\django\middleware\clickjacking.py", line 31, in process_response
+    if response.get('X-Frame-Options') is not None:
+AttributeError: 'unicode' object has no attribute 'get'
+ERROR 2017-09-07 13:52:48,641 base 265224 270376 Internal Server Error: /houtai_admin_grxx/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 235, in get_response
+    response = middleware_method(request, response)
+  File "C:\Python27\lib\site-packages\django\middleware\clickjacking.py", line 31, in process_response
+    if response.get('X-Frame-Options') is not None:
+AttributeError: 'unicode' object has no attribute 'get'
+ERROR 2017-09-07 13:54:11,670 base 178928 257192 Internal Server Error: /houtai_admin_grxx/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 235, in get_response
+    response = middleware_method(request, response)
+  File "C:\Python27\lib\site-packages\django\middleware\clickjacking.py", line 31, in process_response
+    if response.get('X-Frame-Options') is not None:
+AttributeError: 'unicode' object has no attribute 'get'
+ERROR 2017-09-07 13:55:36,703 base 257060 254088 Internal Server Error: /houtai_admin_grxx/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 235, in get_response
+    response = middleware_method(request, response)
+  File "C:\Python27\lib\site-packages\django\middleware\clickjacking.py", line 31, in process_response
+    if response.get('X-Frame-Options') is not None:
+AttributeError: 'unicode' object has no attribute 'get'
+ERROR 2017-09-07 13:56:36,122 base 265996 258464 Internal Server Error: /houtai_admin_grxx/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 235, in get_response
+    response = middleware_method(request, response)
+  File "C:\Python27\lib\site-packages\django\middleware\clickjacking.py", line 31, in process_response
+    if response.get('X-Frame-Options') is not None:
+AttributeError: 'unicode' object has no attribute 'get'
+ERROR 2017-09-07 13:58:43,915 base 254128 276188 Internal Server Error: /houtai_admin_grxx/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 235, in get_response
+    response = middleware_method(request, response)
+  File "C:\Python27\lib\site-packages\django\middleware\clickjacking.py", line 31, in process_response
+    if response.get('X-Frame-Options') is not None:
+AttributeError: 'unicode' object has no attribute 'get'
+WARNING 2017-09-07 14:24:42,124 csrf 281356 283764 Forbidden (CSRF token missing or incorrect.): /gengyun_denglu/
+WARNING 2017-09-07 15:21:27,940 base 326868 321808 Not Found: /
+WARNING 2017-09-10 09:35:25,621 base 341152 306764 Not Found: /
+ERROR 2017-09-10 09:58:22,147 base 294380 314932 Internal Server Error: /admin/gengyun/zhongzi/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python27\lib\site-packages\django\contrib\admin\options.py", line 541, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\utils\decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\views\decorators\cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\contrib\admin\sites.py", line 244, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\utils\decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\utils\decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\utils\decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Python27\lib\site-packages\django\contrib\admin\options.py", line 1468, in changelist_view
+    self.list_max_show_all, self.list_editable, self)
+  File "C:\Python27\lib\site-packages\django\contrib\admin\views\main.py", line 78, in __init__
+    self.queryset = self.get_queryset(request)
+  File "C:\Python27\lib\site-packages\django\contrib\admin\views\main.py", line 326, in get_queryset
+    new_qs = filter_spec.queryset(request, qs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\admin.py", line 42, in queryset
+    print queryset.filter(pk)
+NameError: global name 'pk' is not defined
+ERROR 2017-09-10 09:58:29,996 base 294380 324248 Internal Server Error: /admin/gengyun/zhongzi/
+Traceback (most recent call last):
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python27\lib\site-packages\django\core\handlers\base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Python27\lib\site-packages\django\contrib\admin\options.py", line 541, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\utils\decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\views\decorators\cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\contrib\admin\sites.py", line 244, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\utils\decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\utils\decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Python27\lib\site-packages\django\utils\decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Python27\lib\site-packages\django\contrib\admin\options.py", line 1468, in changelist_view
+    self.list_max_show_all, self.list_editable, self)
+  File "C:\Python27\lib\site-packages\django\contrib\admin\views\main.py", line 78, in __init__
+    self.queryset = self.get_queryset(request)
+  File "C:\Python27\lib\site-packages\django\contrib\admin\views\main.py", line 326, in get_queryset
+    new_qs = filter_spec.queryset(request, qs)
+  File "D:\svn2\new_projcet\zygengyun\gengyun\admin.py", line 42, in queryset
+    print queryset.filter(pk=1)
+NameError: global name 'pk' is not defined
+WARNING 2017-09-10 13:46:50,780 base 307472 67344 Not Found: /
+WARNING 2017-09-12 17:44:29,111 base 138156 142072 Not Found: /
+WARNING 2017-09-12 17:44:29,164 base 138156 157692 Not Found: /favicon.ico
+WARNING 2017-09-12 17:44:33,513 base 138156 169580 Not Found: /admin
+WARNING 2017-09-12 17:52:25,517 base 165868 167028 Not Found: /favicon.ico
+WARNING 2017-09-12 17:52:27,691 base 165868 133568 Not Found: /favicon.ico
+WARNING 2017-09-12 17:52:37,247 base 165868 134284 Not Found: /favicon.ico
+WARNING 2017-09-12 17:52:39,270 base 165868 325092 Not Found: /favicon.ico
+WARNING 2017-09-12 17:52:47,500 base 165868 158800 Not Found: /favicon.ico
+WARNING 2017-09-12 17:52:48,463 base 165868 148848 Not Found: /favicon.ico
+WARNING 2017-09-12 17:53:50,049 base 165868 116896 Not Found: /favicon.ico
+WARNING 2017-09-12 17:53:52,420 base 165868 152916 Not Found: /favicon.ico
+WARNING 2017-09-12 17:58:30,233 base 142060 179588 Not Found: /favicon.ico
+WARNING 2017-09-12 18:03:59,421 base 160200 175364 Not Found: /
+WARNING 2017-09-12 18:04:03,578 base 160200 182388 Not Found: /
+WARNING 2017-09-13 09:17:08,250 base 72056 76252 Not Found: /favicon.ico

@@ -1,0 +1,38 @@
+{%  extends "index.html"  %}
+
+{% block content  %}
+    <div class="panel panel-default panel-info">
+        <div class="panel-heading">耕耘用户登录</div>
+                        <div class="panel-body">
+                             <form action="/gengyun_denglu/" method="post">
+                                      {% csrf_token %}
+
+                                  <div class="form-group"  >
+
+                            <div class="col-md-12">
+                                <label for="firstname" class="control-label"  >用户</label>
+
+                                <input type="text" class="form-control"  name="username" placeholder="请输入用户名" style="width:180px;margin-right:150px;">
+                            </div>
+                        </div>
+                                 <div class="form-group">
+
+		<div class="col-md-12">
+            <label for="firstname" class="control-label">密码</label>
+
+			 <input type="password" class="form-control"  name="password" placeholder="请输入密码" style="width:180px;">
+            <br>
+            <input type="submit" value="登录耕耘" />
+
+
+		</div>
+
+
+	</div>
+                             </form>
+                        </div>
+    </div>
+
+
+
+{%  endblock %}

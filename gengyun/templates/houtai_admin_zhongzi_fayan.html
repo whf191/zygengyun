@@ -1,0 +1,68 @@
+{%  extends "index.html"  %}
+
+{% block content  %}
+ <script src="/static/ckeditor/ckeditor.js"></script>
+    <form  action="/zhongzi_fayan/?pk={{request.gengyuns_pk}}" method="post"  id="bd1">
+                                      {% csrf_token %}
+
+                      	<div class="form-group">
+		<label for="name">我的种子主题{{ request.user.pk }}</label>
+		<input type="text" class="form-control"   id="name"
+			   placeholder="请输入主题"   name="name">
+	</div>
+        <label for="name">内容</label>
+        <textarea name="editor1" id="editor1" rows="10" cols="80">
+                           写点什么？
+            </textarea>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+            </script>
+
+
+        </form>
+
+        <button  onclick="dianwo()" id="fabiao_bt1">发表</button>
+
+<script>
+    function dianwo(){
+        var gy_content= CKEDITOR.instances.editor1.getData();
+        var gy_name = $("#name").val();
+
+      //隐藏发表按钮...
+	 $("#fabiao_bt1").attr('disabled','');
+
+      $.ajax({url:'/zhongzi_fayan/?t=ajax&pk={{request.gengyuns_pk}}',error:function(xhr){
+         alert("发表失败错误提示:" + xhr.status + "" + xhr.statusText);
+         $("#fabiao_bt1").removeAttr("disabled");
+
+   },    type:'POST',data:{name:gy_name,editor1:gy_content,csrfmiddlewaretoken: '{{ csrf_token }}' },
+                            success:function(data,textStatus){
+                                           $("#fabiao_bt1").removeAttr("disabled");
+                                                    var rs_data = data;
+                                                    var arr_data = rs_data.split("|");
+                                                    if (arr_data[0]  == 0) {
+                                                              window.location.href = arr_data[1];
+                                                    }
+                                                    else{
+                                                                    alert("发表失败:--->" +  arr_data[1]  + "--------->" + arr_data[1]);
+
+                                                    };
+
+
+
+
+   }
+
+   });
+
+
+
+    };
+
+
+</script>
+
+
+{%  endblock %}

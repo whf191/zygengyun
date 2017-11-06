@@ -1,0 +1,164 @@
+{%  extends "houtai_admin.html"  %}
+{% block content  %}
+
+{%  endblock %}
+
+
+
+
+
+
+
+
+{% block houtai_content  %}
+
+
+
+
+
+
+           <div class="col-md-9">
+
+                          <div class="panel panel-default">
+                 <div class="panel-heading"><b>个人信息</b>   </div>
+                        	<ul class="list-group">
+
+                                  <li class="list-group-item">
+                                      <span>用户名称:</span> <input type="text"   id="first_name"  name="username"   value="{{request.user.first_name}}"   style="width:30%;">
+
+                                  </li>
+
+                                    <li class="list-group-item">
+                                        <span>邮箱:</span> <input type="email"   id="email"  name="email"    value="{{request.user.email}}"  style="width:30%;margin-left:28px;">
+
+                                  </li>
+                      <li class="list-group-item">
+
+
+
+                                        <button  id="yonghu"  onclick="dianwo()"> 保存修改</button>
+                                  </li>
+
+
+
+            </ul>
+
+
+                              <ul class="list-group">
+                                           <li class="list-group-item">
+                                      <span>原始密码:</span> <input type="text"   id="old_password"  name="username"     style="width:30%;">
+
+                                  </li>
+                                              <li class="list-group-item">
+                                      <span>新密码:</span> <input type="text"   id="xin_password1"  name="username"     style="width:30%;;margin-left:13px;">
+
+                                  </li>
+                                              <li class="list-group-item">
+                                      <span>新密码:</span> <input type="text"   id="xin_password2"  name="username"      style="width:30%;;margin-left:13px;">
+
+                                  </li>
+
+                                         <li class="list-group-item">
+
+
+
+                                        <button  id="yonghu"  onclick="dianwo2()"> 保存修改密码</button> <hr><p>提示:密码修改成功后,会要求重新登录</p>
+                                  </li>
+
+                              </ul>
+
+
+
+            </div>
+
+            </div>
+
+
+  </div>
+
+
+
+<script>
+    function dianwo(){
+        var first_name = $("#first_name").val();
+         var email = $("#email").val();
+
+      //隐藏保存修改按钮...
+	 $("#yonghu").attr('disabled','');
+
+      $.ajax({url:'/houtai_admin_grxx/?t=yonghu',error:function(xhr){
+         alert("保存修改错误提示:" + xhr.status + "" + xhr.statusText);
+         $("#yonghu").removeAttr("disabled");
+
+   },    type:'POST',data:{first_name:first_name,email:email,csrfmiddlewaretoken: '{{ csrf_token }}' },
+                            success:function(data,textStatus){
+                                           $("#yonghu").removeAttr("disabled");
+                                                    var rs_data = data;
+                                                    var arr_data = rs_data.split("|");
+                                                    if (arr_data[0]  == 0) {
+                                                              alert("保存ok:--->" +  arr_data[1] );
+                                                    }
+                                                    else{
+                                                                    alert("保存失败:--->" +  arr_data[1] );
+
+                                                    };
+
+
+
+
+   }
+
+   });
+
+
+
+    };
+
+    function dianwo2(){
+        var old_password = $("#old_password").val();
+         var xin_password1 = $("#xin_password1").val();
+         var xin_password2 = $("#xin_password2").val();
+
+      //隐藏保存修改按钮...
+	 $("#yonghu").attr('disabled','');
+
+      $.ajax({url:'/houtai_admin_grxx/?t=password',error:function(xhr){
+         alert("保存修改错误提示:" + xhr.status + "" + xhr.statusText);
+         $("#yonghu").removeAttr("disabled");
+
+   },    type:'POST',data:{old_password:old_password,xin_password1:xin_password1,xin_password2:xin_password2,csrfmiddlewaretoken: '{{ csrf_token }}' },
+                            success:function(data,textStatus){
+                                           $("#yonghu").removeAttr("disabled");
+                                                    var rs_data = data;
+                                                    var arr_data = rs_data.split("|");
+                                                    if (arr_data[0]  == 0) {
+                                                              alert("修改密码ok:--->" +  arr_data[1] );
+                                                    }
+                                                    else{
+                                                                    alert("修改密码失败:--->" +  arr_data[1] );
+
+                                                    };
+
+
+
+
+   }
+
+   });
+
+
+
+    };
+
+
+
+</script>
+
+
+
+
+
+
+
+
+{%  endblock %}
